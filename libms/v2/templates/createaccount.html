@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}create account{% endblock %}
+{% block head %}
+<link href = "/static/form_style.css" rel = "stylesheet">
+{% endblock %}
+{% block body %}
+<div style= "padding:40px"></div>
+<div class = "form-field">
+    {% if session['wrong_account'] %}
+        <div style = 'color: red;'>{{ session['wrong_account'] }}</div>
+        {% endif %}
+    <h2 class= "sub-heading">Create account</h2>
+    <form action = '/createuser' method = 'POST'>
+        <label for = 'name'>User name:</label><br>
+        <input type = 'text' name = 'name' id = 'name'></input><br><br>
+        <label for = 'email'>Email:</label><br>
+        <input type = 'email' name = 'email' id = 'email'></input><br><br>
+        {% if not session.get('user') or session['user']['role'] == 'USER'%}
+        <label for = 'password'>Password:</label><br>
+        <input type = 'password' name = 'password' id = 'password'></input><br><br>
+        {% endif %}
+        <input type = 'submit' value = 'create account'><br><br>
+    </form>
+</div>
+{% endblock %}

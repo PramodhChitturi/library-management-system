@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title%}All books{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/table_style.css">
+{% endblock %}
+{% block body %}
+<h2 class = "sub-heading">All books</h2>
+<table>
+    <tr>
+        <th> Book ID </th>
+        <th> Book name </th>
+        <th> Author </th>
+        <th> Edition </th>
+        <th> Category </th>
+        <th> Description </th>
+        {% if session.get('user') and session['user']['role'] == 'ADMIN' %}
+        <th> Created at </th>
+        <th> Quantity </th>
+        <th> Books available </th>
+        {% endif %}
+        <th> Status </th>
+    </tr>
+    {% for record in data %}
+    <tr>
+        <td> {{ record['id'] }} </td>
+        <td> {{ record['book_name'] }} </td>
+        <td> {{ record['author'] }} </td>
+        <td> {{ record['edition'] }} </td>
+        <td> {{ record['category'] }} </td>
+        <td class = "description"> {{ record['description'] }} </td>
+        {%if session.get('user') and  session['user']['role'] == 'ADMIN'%}
+        <td> {{ record['created_at'] }} </td>
+        <td> {{ record['quantity'] }} </td>
+        <td> {{ record['book_available'] }} </td>
+        {% endif %}
+        <td> {{ record['status'] }} </td>
+    </tr>
+    {% endfor %}
+{% endblock %}

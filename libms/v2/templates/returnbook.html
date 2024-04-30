@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title%}borrow book{%endblock%}
+{% block head %}
+<link rel = "stylesheet" href = "/static/form_style.css">
+{% endblock %}
+{% block body %}
+<div style = "padding: 40px"></div>
+<div class = "form-field">
+    <h2 class = "sub-heading">Return book</h2>
+    <form action = '/getreturnbooks' method = 'GET'>
+        <label for = 'user_id'>User_id:</label><br>
+        <input type = 'tel' name='user_id' id = 'book_id'></input><br><br>
+        <input type = 'submit' value = 'submit'></input><br><br>
+    </form>
+</div>
+{% endblock %}

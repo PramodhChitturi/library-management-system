@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}delete book {% endblock %}
+{% block head%}
+<link rel= "stylesheet" href = "/static/form_style.css">
+{%endblock%}
+{% block body %}
+<div style = 'padding: 40px'></div>
+<div class = "form-field">
+    <h2 class = "sub-heading">Delete book</h2>
+    <form action = '/delete' method = 'POST'>
+        <label for = 'book_id'>Book id:</label><br>
+        <input type = 'tel' patten = '[0-9]' name = 'book_id' id = 'book_id' required></input><br><br>
+        <input type = 'submit' value = 'delete'></input><br><br>
+    </form>
+</div>
+{% endblock %}

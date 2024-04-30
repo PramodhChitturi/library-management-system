@@ -1,0 +1,74 @@
+body
+{
+    background: url("/static/Images/background_20.png") no-repeat fixed center;
+}
+a
+{
+    font-size: 18px;
+    color: inherit;
+    text-decoration: none;
+}
+.profile-logo
+{
+    display: inline-block;
+    border: 3px solid black;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top:5px;
+    right:30px;
+}
+.profile-logo:hover
+{
+    background-color: gray;
+}
+.heading
+{
+    font-size: 2em;
+    font-weight: bolder;
+    color: green;
+    text-align: center;
+}
+.heading a
+{
+    font-size: 2em;
+}
+.heading a:hover
+{
+    color: mediumseagreen;
+}
+.nav-bar
+{
+    width: 100%;
+    background-color: darkslategray;
+    color:white;
+    height: 32px;
+    text-align:center;
+}
+.nav-bar-content
+{
+    font-size:16px;
+    font-family: Helvetica;
+}
+.nav-bar-content a {
+    font-size: 16px;
+    padding: 6.8px;
+    display: inline-block;
+}
+.nav-bar-content a:hover {
+    color: white;
+    background-color: black;
+}
+.sub-heading
+{
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-align: center;
+    color: mediumseagreen;
+}
+
+a:hover
+{
+    color: green;
+}

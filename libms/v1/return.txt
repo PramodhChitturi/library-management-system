@@ -1,0 +1,22 @@
+enter name ---> get borrowed books
+show borrowed books and count with return button
+press returned button to return 
+
+Borrowed books table
+person name
+contact number
+book id
+book name
+author
+edition
+count
+borrow id for each book
+no.of active borrowings if count > 1
+borrowed_at
+status
+returned at (drop down)
+
+
+Admin
+return history
+        by name

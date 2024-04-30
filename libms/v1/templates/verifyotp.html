@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>forgot password</title>
+    </head>
+    <body>
+        <h1>Library Management System</h1>
+        <h2> verify otp</h2>
+        {% if error %}
+        <p style = "color: red;">{{ error }}<p>
+        {% endif %}
+        <form action = '/resetpassword' method = 'POST'>
+            <label for = 'otp'>Enter otp</label><br>
+            <input type = 'tel' pattern = '[0-9]{5}' name = 'otp' id = 'otp' /><br><br>
+            <input type = 'hidden' name = 'email' value = '{{ email }}'></input>
+            <input type = 'hidden' name = 'otp_value' value = '{{ otp_generated }}'></input>
+            <input type = 'submit' value = 'verify'>
+            </form>
+        </body>
+        </html>
+

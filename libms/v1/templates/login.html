@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+    <head>
+        <title>login</title>
+    </head>
+    <body>
+        <h1>Library Management System</h1>
+        {% if session['wrong_credentials'] %}
+        <div style = "color: red;" >{{ session['wrong_credentials'] }}</div>
+        {% endif %}
+        <ul>
+            <h3>Under development</h3>
+            <li><a href = ''>Admin</a></li>
+            <li><a href = '/login/user'>User</a></li>
+            <h3>Developer options</h3>
+            <li><a href = '/home'>Continue without login</a></li>
+        </ul>
+    </body>
+    </html>

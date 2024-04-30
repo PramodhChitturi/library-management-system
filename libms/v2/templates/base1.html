@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+        {% block head%}
+            <title>{%block title %}{% endblock %}</title>
+        {% endblock %}
+        <!-- <link rel = "stylesheet" href = "/static/base_style.css"> -->
+    </head>
+    <body>
+        <div class = "heading">
+            <a href = '/home'>Library Management System</a>
+        </div>
+        <div class = "nav-bar">
+            <a href = "/home">All books</a>
+        </div>
+        {% if session['user'] %}
+        <a href = '/profile' style = 'text-decoration: none'>
+        <img src = '/profile.png' width = '40px' height = '40px' alt = 'profile pic'></img>
+        </a>
+        {% endif %}
+        <div>
+        {% block body %}
+        {% endblock %}
+        </div>
+    </body>
+</html>

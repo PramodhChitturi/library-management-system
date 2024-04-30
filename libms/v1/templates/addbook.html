@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <title>add book</title>
+    </head>
+    <body>
+        <h1>Library Management System</h1>
+        <a href = '/home'>Go home</a>
+        <h2>Add book</h2>
+        <form action = '/add' method = 'POST' id = 'addbook'> 
+        <!-- <label for = 'id'>Id:</label>
+        <input type = 'text' name = 'id' id = 'id'></input><br><br> -->
+        <label for = 'book_name'>Book name:</label><br>
+            <input type = 'text' id = 'book_name' name = 'book_name'><br><br>
+        <label for = 'author' >Author:</lable><br>
+            <input type = 'text' id = 'author' name = 'author'></input><br><br>
+        <label for = 'edition'>Edition:</label><br>
+        <input type = 'text' name = 'edition' id = 'edition'></input><br><br>
+        <label for = 'category'>Category:</label><br>
+        <input type = 'text' name = 'category' id = 'category'></input><br><br>
+        <label for = 'descripton'>Description:</label><br>
+        <!--<input type = 'text' id = 'description' name = 'description' ></input><br><br> -->
+        <textarea id = 'description' rows = '4' cols ='50' name = 'description'></textarea><br><br>
+        <input type = 'submit' value = 'Add'></input>
+        </form>

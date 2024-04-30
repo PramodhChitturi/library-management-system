@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{%block title%}return book{%endblock %}
+{%block head%}
+<link rel = "stylesheet" href = "/static/table_style.css">
+{%endblock%}
+{%block body%}
+<a href = '/home'>Home</a>
+<h2>Return book</h2>
+<table>
+    <tr>
+        <th>Borrow ID</th>
+        <th>User ID</th>
+        <th>Person</th>
+        <th>Email</th>
+        <th>Book ID</th>
+        <th>Book name</th>
+        <th>Author</th>
+        <th>Edition</th>
+        <th>Borrowed at</th>
+        <th>Status</th>
+        <th>Returned at</th>
+        <th>Return here</th>
+    </tr>
+    {% for record in data%}
+    <tr>
+        <td>{{record['borrow_id']}}</td>
+        <td>{{record['user_id']}}</td>
+        <td>{{record['username']}}</td>
+        <td>{{record['email']}}</td>
+        <td>{{record['book_id']}}</td>
+        <td>{{record['book_name']}}</td>
+        <td>{{record['author']}}</td>
+        <td>{{record['edition']}}</td>
+        <td>{{record['borrowed_at']}}</td>
+        <td>{{record['status']}}</td>
+        <td>{{record['returned_at']}}</td>
+        {% if record['status'] == 'ISSUED' %}
+        <td>
+            <form action = '/return' method = 'POST'>
+                <input type = 'hidden' name = 'borrow_id' value = '{{record["borrow_id"]}}'></input>
+                <input type = 'hidden' name = 'book_id' value = '{{record["book_id"]}}'></input>
+                <input type = 'hidden' name = 'user_id' value = '{{record["user_id"]}}'></input>
+                <input type = 'submit' value = 'return'></input>
+            </form>
+        </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+{%endblock%}

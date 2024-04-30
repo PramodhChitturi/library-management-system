@@ -1,0 +1,21 @@
+Title: Library inventory management system
+
+1.books in library
+    total no.of books in library
+    no.of books present in library
+    no.of books borrowed from library
+    new book entry
+    book deletion
+    search book (optional)
+1.list of book in library
+    book name
+    book author
+    book availability
+2.book borrowed
+    person name
+    date borrowed
+    due date
+    change availability of book(have to do)
+3.book returned(have to do)
+    date borrowed
+    date returned

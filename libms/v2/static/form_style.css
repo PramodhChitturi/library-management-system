@@ -1,0 +1,36 @@
+.form-field
+{
+    margin:auto;
+    width: 400px;
+    border: 3px solid black;
+    text-align: center;
+}
+.form-field input
+{
+    width: 50%;
+    height: 20px;
+    border-radius: 5px;
+}
+.form-field label
+{
+    font-size: 20px;
+}
+.form-field input[type=submit]
+{
+    width: 150px;
+    height: 30px;
+    font-size: 20px;
+}
+.form-field input:hover[type=submit]
+{
+    color: green;
+}
+.form-field a
+{
+    font-size: 18px;
+    text-decoration: none;
+}
+.form-field a:hover 
+{
+    color: green;
+}

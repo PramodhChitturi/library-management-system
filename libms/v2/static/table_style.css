@@ -1,0 +1,32 @@
+table
+{
+    width: 100%;
+    border: 3px solid green;
+    border-collapse: collapse;
+}
+th, td
+{
+    font-family: sans-serif;
+    text-align: center;
+    border-bottom: 2px solid gray;
+}
+th
+{
+    color: white;
+    background-color: gray;
+    font-size: 0.9em;
+    height: 50px;
+}
+td
+{
+    height: 30px;
+}
+.description
+{
+    width: 30%;
+    height: 20%;
+}
+tr:hover 
+{
+    color: green;
+}

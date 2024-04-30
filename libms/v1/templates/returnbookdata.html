@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    <head>
+        <title>return book</title>
+        <style>
+            table, th, td{
+                border: 2px solid;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Library Management System</h1>
+        <a href = '/home'>go home</a>
+        <h2>Return book</h2>
+        {% if session['user']%}
+        <div>ID: {{ session['user']['id'] }}</div>
+        <div>Username: {{ session['user']['username'] }}</div><br>
+        {% endif %}
+    <form action = '/search' method = 'GET'>
+        <input type = 'search' placeholder = 'search' name = 'search' required></input>
+        <select name = 'filter'>
+            <option value = 'none' selected disable hidden>Filter</option>
+            <option value = 'book_name'>Book name</option>
+            <option value = 'book_id'>Book ID</option>
+            <option value = 'borrow_id'>Borrow ID</option>
+        </select>
+        <input type = 'hidden' name = 'table' value = 'borrowed_books'></input>
+        <input type = 'hidden' name= 'title' value = 'return'></input>
+        <input type = 'submit' value = 'search'></input>
+    </form>
+    <br>
+        <table>
+            <tr>
+                {%for heading in headings%}
+                <th>{{ heading }}</th>
+                {% endfor %}
+                <th>Return</th>
+            </td>
+            {% for values, row in zip(record, data)%}
+            <tr>
+                {% for col in row%}
+                <td>{{ col }}</td>
+                {% endfor %}
+                <td>
+                {% if values.Status == 'ACTIVE'%}
+                <form action = '/return' method = 'GET'>
+                    <input type = 'hidden' id = '_id' name = '_id' value = {{ values.get('Borrow ID')}}></input>
+                    <input type = 'hidden' id = 'book_id' name = 'book_id' value = {{ values.get('Book ID') }}></input>
+                    <input type = 'submit' value = 'return here'></input>
+                    </form>
+                {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        {% if search %}
+        <a href = '/returnbookdata'>Show all books</a>
+        {% endif %}
+    </body>
+</html>

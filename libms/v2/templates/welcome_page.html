@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Welcome page{% endblock %}
+{% block body %}
+<p>Welcome to Library Management System</p>
+{% if not session['user']%}
+<a href = '/home'>Continue without login</a>
+{% else %}
+<a href = '/home'>Enter</a>
+{% endif %}
+{% endblock %}

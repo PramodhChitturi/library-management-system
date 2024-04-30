@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{%block title%}Report{% endblock %}
+{% block head %}
+<link rel = "stylesheet" href = "/static/table_style.css">
+{% endblock %}
+{% block body %}
+<h2 class = "sub-heading">Report</h2>
+<hr>
+<details>
+    <summary>Weekly</summary>
+    <table>
+        <tr>
+            <th>Borrow ID</th>
+            <th>User ID</th>
+            <th>Person name</th>
+            <th>Email</th>
+            <th>Book ID</th>
+            <th> Book name </th>
+            <th> Author </th>
+            <th> Edition </th>
+            <th>Borrowed at</th>
+            <th>Status</th>
+            <th>Returned at</th>
+        </tr> 
+        {% for record in weekly_report%}
+        <tr>
+            <td>{{record["borrow_id"]}}</td>
+            <td>{{record["user_id"]}}</td>
+            <td>{{record["username"]}}</td>
+            <td>{{record["email"]}}</td>
+            <td>{{record["book_id"]}}</td>
+            <td>{{record["book_name"]}}</td>
+            <td>{{record["author"]}}</td>
+            <td>{{record["edition"]}}</td>
+            <td>{{record["borrowed_at"]}}</td>
+            <td>{{record["status"]}}</td>
+            <td>{{record["returned_at"]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</details>
+<hr>
+<details>
+    <summary>Monthly</summary>
+    <table>
+        <tr>
+                <th>Borrow ID</th>
+                <th>User ID</th>
+                <th>Person name</th>
+                <th>Email</th>
+                <th>Book ID</th>
+                <th> Book name </th>
+                <th> Author </th>
+                <th> Edition </th>
+                <th>Borrowed at</th>
+                <th>Status</th>
+                <th>Returned at</th>
+            </tr>
+            {% for record in monthly_report%}
+        <tr>
+            <td>{{record["borrow_id"]}}</td>
+            <td>{{record["user_id"]}}</td>
+            <td>{{record["username"]}}</td>
+            <td>{{record["email"]}}</td>
+            <td>{{record["book_id"]}}</td>
+            <td>{{record["book_name"]}}</td>
+            <td>{{record["author"]}}</td>
+            <td>{{record["edition"]}}</td>
+            <td>{{record["borrowed_at"]}}</td>
+            <td>{{record["status"]}}</td>
+            <td>{{record["returned_at"]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</details>
+<hr>
+<div>
+    <iframe src = "/report_graph" style = "height: 100vh; width: 100%; left: 0;" frameborder = "0px" title = "graph report"></iframe>
+</div>
+{% endblock %}

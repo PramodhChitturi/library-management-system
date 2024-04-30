@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Add book{% endblock %}
+{%block head%}
+<link rel = "stylesheet" href = "/static/form_style.css"
+{% endblock %}
+{% block body %}
+<div style = "padding: 40px"></div>
+<div class = "form-field">
+    <h2 class = "sub-heading">Add book</h2>
+    <form action = '/add' method = 'POST'>
+        <label for = 'book_name'>Book name:</label><br>
+        <input type = 'text' name = 'book_name' id = 'book_name' required></input><br><br>
+        <label for = 'author'>Author:</label><br>
+        <input type = 'text' name = 'author' id = 'author' required></input><br><br>
+        <label for = 'edition'>Edition:</label><br>
+        <input type = 'text' name = 'edition' id = 'edition' required></input><br><br>
+        <label for = 'category'>Category:</label><br>
+        <input type = 'text' name = 'category' id = 'category' required></input><br><br>
+        <label for = 'descripton'>Description:</label><br>
+        <textarea rows = '5' cols = '30' name = 'description' id = 'description'></textarea><br><br>
+        <input type = 'submit' value = 'add'></input>
+        <br><br>
+    </form>
+</div>
+{% endblock %}

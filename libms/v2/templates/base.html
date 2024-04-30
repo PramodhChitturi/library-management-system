@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel = "stylesheet" href = "/static/base_style.css">
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div style = "text-align: center;">
+            <a class = "heading" href = "/home">Library Management System</a>
+            <div class = "profile-logo">
+                <a href = '/profile' style = 'text-decoration: none'>
+                    <img src = '/static/images/profile.png' width = '30px' height = '30px' alt = 'profile pic'></img>
+                </a>
+            </div>
+        </div>
+        <div class = "nav-bar">
+            <div class = "nav-bar-content">
+                {%if session.get('user') and session['user']['role'] == "ADMIN"%}
+                    <a href = "/createaccount">Create pass</a>
+                {% endif %}
+                <a href = "/showallbooks">All books</a>
+                {%if session.get('user') and session['user']['role'] == "ADMIN"%}
+                    <a href = "/addbook">Add book</a>
+                    <a href = "/deletebook">Delete book</a>
+                    <a href = "/borrowbook">Borrow book</a>
+                    <a href = "/returnbook">Return book</a>
+                    <a href = "/report">Report</a>
+                {% endif %}
+                <a href = "/reservebook">Reserve book</a>
+                {% if session.get('user') %}
+                    <a href = "/logout">Logout</a>
+                {% else %}
+                    <a href = "/login">Login/create account</a>
+                {% endif %}
+            </div>
+        </div>
+        <div>
+            {% block body %}{% endblock %}
+        </div>
+
+    </body>

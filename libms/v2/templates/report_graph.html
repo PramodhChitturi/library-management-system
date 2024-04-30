@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Graph Report</title>
+        <style>
+            h2
+            {
+                text-align: center;
+                color: mediumseagreen;
+            }
+            body
+            {
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Graph</h2>
+        <!--<from action = '/get_graph', method = 'GET'>
+            <label for = "plot1">plot 1:</label>
+            <select name = "plot1" id = "plot1">
+                <option value = "">no.of</option>
+                <option value = ""></option>
+            </select>
+            <label style = "padding-left: 50px" for = "plot2">plot 2:</label>
+            <select name = "plot2" id = "plot2">
+                <option value = ""></option>
+                <option value = ""></option>
+            </select>
+            <label style = "padding-left: 30px;"></label>
+            <input type = "submit"></input>
+        </form>-->
+        <!--<img src = "" alt = "graph" width = 640 height =480></img>-->
+        {{ graph | safe }}
+    </body>
+</html>

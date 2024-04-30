@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{%block title%}reserve book{% endblock %}
+{% block head%}
+<link rel = "stylesheet" href = "/static/form_style.css">
+{% endblock %}
+{% block body %}
+<div style = "padding: 40px"></div>
+<div class="form-field">
+    <h2 class = "sub-heading">Reserve book</h2>
+    <form action = '/reserve' method = 'GET'>
+        {% if not session['user'] or session['user']['role'] == 'ADMIN' %}
+        <label for = 'user_id'>User id:</label> <br>
+        <input type = 'tel' name = 'user_id' id = 'user_id'></input><br><br>
+        {%else%}
+        <input type = 'hidden' name = 'user_id' value = '{{session["user"]["id"]}}'></input>
+        {% endif %}
+        <label for = 'book_id'>Book ID:</label><br>
+        <input type = 'tel' name = 'book_id' id = 'book_id' required></input><br><br>
+        <input type = 'submit' value = 'reserve'><br><br>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{%block head%}
+<title>profile</title>
+<style>
+</style>
+{% endblock %}
+{%block body%}
+{% if session['user']%}
+<img src = 'C:\Users\Pramodh%20Kumar\OneDrive\Desktop\Projects\libms\v2\templates\profile.png' alt = 'profile picture' width = '40px' height = '40px'></img>
+{% if not session.get('user') %}
+        <a href = '/login'>Login / Create account</a><br><br>
+        {% else %}
+        <div>ID: {{ session['user']['id'] }} </div>
+        <div>Username: {{ session['user']['username'] }}</div>
+        {% if session['user']['role'] == 'ADMIN' %}
+        <div>Role: {{ session['user']['role'] }}</div>
+        {% endif %}
+        <a href = '/logout'>Logout</a><br><br>
+        {% endif %}
+{%endif%}
+{% endblock %}

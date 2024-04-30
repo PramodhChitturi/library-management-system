@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}borrow book {% endblock %}
+{%block head%}
+<link rel = "stylesheet" href = "/static/form_style.css">
+{% endblock %}
+{% block body %}
+<div style = "padding: 40px"></div>
+<div class = "form-field">
+    <a href = '/allborrowedbooksdata'>Borrowed books data</a>
+    <h2>Borrow book</h2>
+    <form action = '/borrow' method = 'POST'>
+        <label for = 'user_id'>User ID:</label><br>
+        <input type = 'tel' patter =  '[0-9]' name = 'user_id' id = 'user_id'></input><br><br>
+        <label for = 'book_id'>Book ID:</label><br>
+        <input type = 'tel' patten = '[0-9]' name = 'book_id' id = 'book_id' required></input><br><br>
+        <input type = 'submit' value = 'borrow'></input><br><br>
+    </form>
+</div>
+{% endblock %}

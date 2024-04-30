@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+    <head><title>home</title></head>
+    <body>
+        <h1>Library Management System</h1>
+        <div>ID: {{ session['user']['id'] }}</div>
+        <div>Username : {{ session['user']['username'] }}</div>
+        <a href = '/logout'>Logout</a>
+        <ul>
+            <li><a href = '/showallbooks'>Show all books</a></li>
+            <li><a href = '/borrowbook'>Borrow book</a></li>
+            <li><a href = 'returnbook'>Return books</a></li>
+        </ul>
+
+    </body></html>

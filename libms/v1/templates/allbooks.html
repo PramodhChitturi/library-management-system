@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <style>
+            table, th, td{
+                border: 2px solid;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Library Management System</h1>
+        <a href = '/index'>Home</a>
+        <h2>{{ title }}</h2>
+        {% if session['user'] %}
+        <div>ID: {{ session['user']['id'] }}</div>
+        <div>Username: {{ session['user']['username'] }}</div>
+        <br>
+        {% endif %}
+        <form action = '/search' method = 'GET'>
+            <input type = 'search' name = 'search' placeholder = 'search'></input>
+            {% if title == 'Borrowed books info'%}
+            <input type = 'hidden' id = 'table' name = 'table' value = 'borrowed_books'></input>
+            {% elif title == 'List of books'%}
+            <input type = 'hidden' id = 'table' name = 'table' value = 'books_inventory_table'></input>
+            {% endif %}
+            <select name = 'filter' id = 'filter'>
+                <option value = 'none' selected disabled hidden>Filter</option>
+                <option value = 'book_name'>Book name</option>
+                <option value = 'book_id'>Book ID</option>
+                {% if title == 'Borrowed books info'%}
+                <option value = 'borrow_id'>Borrow ID</option>
+                {% endif %}
+            </select>
+            <input type = 'submit' value = 'search'></input><br><br>
+        </form>
+        <table>
+            <tr>
+                {% for heading in headings%}
+                <th>{{ heading }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in data %}
+            <tr>
+                {% for content in row %}
+                <td> {{ content }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        {% if search %}
+            {% if title == 'List of books' %}
+                <a href = '/showallbooks'>Show all books</a>
+            {% elif title == 'Borrowed books info' %}
+                <a href = '/renderborrowbooks'>Show all books</a>
+            {% endif %}
+        {% endif %}
+    </body>
+    </html>

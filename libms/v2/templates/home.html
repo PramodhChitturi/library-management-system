@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title%}Home{% endblock %}
+{% block body%}
+<ul>
+    {% if session.get('user') and session['user']['role'] == 'ADMIN' %}
+    <li><a href = '/createaccount'>Create pass</a></li>
+    {% endif %}
+    <li><a href = '/showallbooks'>Show all books</a></li>
+    {% if session.get('user') and session['user']['role'] == 'ADMIN' %}
+    <li><a href = '/addbook'>Add book</a></li>
+    <li><a href = '/deletebook'>Delete book</a></li>
+    <li><a href = '/borrowbook'>Borrow book</a></li>
+    <li><a href = '/returnbook'>Return book</a></li>
+    <li><a href = '/report'>Report</a></li>
+    {% endif %}
+    <li><a href = '/reservebook'>Reserve book</a></li>
+</ul>
+{% endblock %}

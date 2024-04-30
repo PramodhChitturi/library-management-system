@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <title>borrow book</title>
+    </head>
+    <body>
+        <h1>Library Inventory Management System</h1>
+        <a href = '/home'>go home</a>
+        <ul>
+            <li><a href = '/borrowedbooksdata'>Borrowed books info</a></li>
+        </ul>
+        <h2>Borrow book</h2>
+        <form action = '/borrow' method = 'POST'>
+            {% if not session['user']%}
+            <lable for = 'user_id'>User ID:</label>
+            <input type = 'tel' pattern = '[0-9]{10}' name ='user_id' id = 'user_id'></input>
+            <label for = 'p_name'>Person name:</label><br>
+            <input type = 'text' name = 'p_name' id = 'p_name' required></input><br><br>
+            <lable for = 'email'>Email:</label><br>
+            <input type = 'email' name = 'email' id = 'email'></input><br><br>
+            {% endif %}
+            <label for = '_id'>Book id:</label><br>
+            <input type = 'text' name = '_id' for = '_id' required></input><br><br>
+            <input type  = 'submit' value = 'borrow'></input>
+        </form>
+    </body>
+    </html>

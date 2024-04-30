@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <title>report</title>
+        <style>
+            table, th, td{
+                border: 2px solid;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Library Management System</h1>
+        <a href = '/home'>go home</a>
+        <h2>Report</h2>
+        <details>
+            <summary>Weekly report</summary>
+            <table>
+                <tr>
+                    {% for heading in headings %}
+                    <th>{{ heading }}</th>
+                    {% endfor %}
+                </tr>
+                {% for row in data_weekly%}
+                <tr>
+                    {% for col in row %}
+                    <td>{{ col }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </details>
+
+        <details>
+            <summary>Monthly report</summary>
+                <table>
+                    <tr>
+                        {% for heading in headings %}
+                        <th>{{ heading }}</th>
+                        {% endfor %}
+                    </tr>
+                    {% for row in data_monthly %}
+                    <tr>
+                        {% for col in row %}
+                        <td>{{ col }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+        </details>
+    </body>
+    </html>
